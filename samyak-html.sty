@@ -1,0 +1,239 @@
+% Input and Fonts
+\RequirePackage[utf8]{inputenc}
+% \RequirePackage{csquotes}
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+\RequirePackage[T1]{fontenc}
+% \SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+% \SetSymbolFont{wasy}{bold}{U}{wasy}{m}{n}
+
+% LWARP Setup
+
+\usepackage[
+HomeHTMLFilename=index, % Filename of the homepage.
+% HTMLFilename={node-}, % Filename prefix of other pages.
+% IndexLanguage=english, % Language for xindy index, glossary.
+% latexmk, % Use latexmk to compile.
+% OSWindows, % Force Windows. (Usually automatic.)
+mathjax, % Use MathJax to display math.
+]{lwarp}
+% \boolfalse{FileSectionNames} % If false, numbers the files.
+
+\RequirePackage{
+    csquotes, 
+    bm,
+    amsmath, 
+    amsthm, 
+    amssymb, 
+    amsfonts,
+    xcolor, 
+    geometry, 
+    tikz, 
+    varioref,
+    hyperref,
+    appendix,
+    cleveref, 
+    mathrsfs,
+    enumitem,
+    fancyhdr,
+    lipsum,
+    nicefrac,
+    mathtools,
+    xspace,
+    anyfontsize,
+    todonotes,
+    fancyhdr,
+    lastpage,
+    stmaryrd,
+    commath,
+    tcolorbox,
+    float,     
+    soul,
+    babel}
+\RequirePackage[center]{titlesec}
+\usetikzlibrary{automata, arrows.meta, positioning, cd} 
+\RequirePackage[all,cmtip]{xy} 
+\RequirePackage{makeidx}\makeindex
+
+\crefname{section}{§}{§§}
+\Crefname{section}{§}{§§}
+% \RequirePackage{euler}
+
+\setcounter{tocdepth}{2} % Include subsections in the \TOC.
+\setcounter{secnumdepth}{2} % Number down to subsections.
+\setcounter{FileDepth}{1} % Split \HTML\ files at sections
+\booltrue{CombineHigherDepths} % Combine parts/chapters/sections
+\setcounter{SideTOCDepth}{1} % Include subsections in the side\TOC
+% \HTMLTitle{Webpage Title} % Overrides \title for the web page.
+\HTMLAuthor{Samyak Jha} % Sets the HTML meta author tag.
+\HTMLLanguage{en-US} % Sets the HTML meta language.
+\HTMLDescription{A Readable Tutorial on Approximate Message Passing}% Sets the HTML meta description.
+\HTMLFirstPageTop{Name and \fbox{HOMEPAGE LOGO}}
+\HTMLPageTop{\fbox{LOGO}}
+\HTMLPageBottom{Contact Information and Copyright}
+\CSSFilename{lwarp.css}
+
+
+\hypersetup {
+    colorlinks=true, % because why not?
+}
+
+\geometry{
+    margin=1in, % uniformity 
+}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\S\thesection}{1em}{}[]
+\titleformat{\subsection}{\normalfont\Large\bfseries}{\S\thesubsection}{1em}{}[]
+\titleformat{\subsubsection}{\normalfont\Large\bfseries}{\S\thesubsubsection}{1em}{}[]
+
+% \newtheoremstyle{thmstyle}%               % Name
+%   {}%                                     % Space above
+%   {}%                                     % Space below
+%   {\itshape}%                             % Body font
+%   {}%                                     % Indent amount
+%   {\bfseries}%                            % Theorem head font
+%   {.}%                                    % Punctuation after theorem head
+%   { }%                                    % Space after theorem head, ' ', or \newline
+%   {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+% \newtheoremstyle{defstyle}%               % Name
+%   {}%                                     % Space above
+%   {}%                                     % Space below
+%   {}%                                     % Body font
+%   {}%                                     % Indent amount
+%   {\bfseries}%                            % Theorem head font
+%   {.}%                                    % Punctuation after theorem head
+%   { }%                                    % Space after theorem head, ' ', or \newline
+%   {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                 
+
+
+% \theoremstyle{thmstyle}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+
+% \theoremstyle{defstyle}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{exercise}[theorem]{Example}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\emptyset}{\varnothing}
+% \renewcommand{\footrulewidth}{\headrulewidth}
+\setlength{\headheight}{15pt}
+
+% Common Algebraic Structures
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\frakM}{\mathfrak{M}}
+
+% Categories
+\newcommand{\catTopp}{\mathbf{Top}_*}
+\newcommand{\catGrp}{\mathbf{Grp}}
+\newcommand{\catTopGrp}{\mathbf{TopGrp}}
+\newcommand{\catSet}{\mathbf{Set}}
+\newcommand{\catTop}{\mathbf{Top}}
+\newcommand{\catRing}{\mathbf{Ring}}
+\newcommand{\catCRing}{\mathbf{CRing}} % comm. rings
+\newcommand{\catMod}{\mathbf{Mod}}
+\newcommand{\catMon}{\mathbf{Mon}}
+\newcommand{\catMan}{\mathbf{Man}} % manifolds
+\newcommand{\catDiff}{\mathbf{Diff}} % smooth manifolds
+\newcommand{\catAlg}{\mathbf{Alg}}
+\newcommand{\catRep}{\mathbf{Rep}} % representations 
+\newcommand{\catVec}{\mathbf{Vec}}
+
+% Group and Representation Theory
+\newcommand{\chr}{\operatorname{char}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\id}{\mathbf{id}}
+\newcommand{\cl}{\mathbf{cl}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Alt}{\operatorname{Alt}}
+
+% Commutative and Homological Algebra
+\newcommand{\spec}{\operatorname{spec}}
+\newcommand{\mspec}{\operatorname{m-spec}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\tor}{\operatorname{tor}}
+\newcommand{\Ann}{\operatorname{Ann}}
+\newcommand{\Supp}{\operatorname{Supp}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\limit}{\varprojlim}
+\newcommand{\colimit}{%
+  \mathop{\mathpalette\colimit@{\rightarrowfill@\textstyle}}\nmlimits@
+}
+\makeatother
+
+
+\newcommand{\fraka}{\mathfrak a} % ideal
+\newcommand{\frakb}{\mathfrak b} % ideal
+\newcommand{\frakc}{\mathfrak c} % ideal
+\newcommand{\frakf}{\mathfrak f} % face map
+\newcommand{\frakm}{\mathfrak m} % maximal ideal
+\newcommand{\frakp}{\mathfrak p} % prime ideal
+\newcommand{\frakq}{\mathfrak q} % qrime ideal
+\newcommand{\frakN}{\mathfrak N} % nilradical 
+\newcommand{\frakP}{\mathfrak P} % nilradical 
+\newcommand{\frakR}{\mathfrak R} % jacobson radical
+
+% General/Differential/Algebraic Topology 
+\newcommand{\scrA}{\mathscr A}
+\newcommand{\scrB}{\mathscr B}
+\newcommand{\scrP}{\mathscr P}
+\newcommand{\scrS}{\mathscr S}
+\newcommand{\bbH}{\mathbb H}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\psimeq}{\simeq_p}
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\RP}{\mathbb{R}\text{P}}
+\newcommand{\CP}{\mathbb{C}\text{P}}
+
+% Miscellaneous
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Span}{\operatorname{Span}}
+\newcommand{\E}[2][]{\mathbb{E}_{#1}\left[#2\right]}
+\newcommand{\bv}{\bm{v}}
+\newcommand{\bx}{\bm{x}}
+\newcommand{\bp}{\bm{p}}
+\newcommand{\bM}{\bm{M}}
+\newcommand{\bS}{\bm{S}}
+\newcommand{\bV}{\bm{V}}
+\newcommand{\bR}{\bm{R}}
+\newcommand{\pE}[2][]{\tilde{\mathbb{E}}_{#1}\left[#2\right]}
+\DeclareMathOperator{\vect}{vec}
+
+
+% Convex Geometry
+
+\DeclareMathOperator{\vol}{Vol}
+\newcommand{\Vol}[2][]{\vol_{#1} \left(#2\right)}
+\DeclareMathOperator{\Cov}{Cov}
+\newcommand{\cov}[1]{\Cov\left(#1\right)}
+\DeclareMathOperator{\Bary}{b}
+\newcommand{\ba}[1]{\Bary\left(#1\right)}
+\newcommand{\mink}[1][\mu]{{#1}^{+}}
+

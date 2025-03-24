@@ -1,0 +1,38 @@
+\documentclass[english, 10pt, oneside]{book}
+\usepackage{samyak-html}
+\usepackage{mathpazo}
+\usepackage[backend=biber, citestyle=alphabetic]{biblatex}
+\addbibresource{amp.bib}
+\setlength{\parindent}{0em}
+
+\title{A Readable Tutorial on AMP}
+\author{Samyak Jha}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section*{Preface}
+
+
+
+\part{Preliminaries}
+
+\input{notes/intro.tex}
+
+\printbibliography
+
+\begin{warpprint} % For print output ...
+    \cleardoublepage % ... a common method to place index entry into TOC.
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\indexname}
+\end{warpprint}
+
+\ForceHTMLPage % HTML index will be on its own page.
+\ForceHTMLTOC % HTML index will have its own toc entry.
+\printindex
+
+\end{document}
+

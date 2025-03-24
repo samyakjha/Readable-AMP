@@ -1,0 +1,9 @@
+\LWR@infoprocessingmathjax{mathpazo}
+
+\ifpazo@slGreek
+\LWR@mathjax@addgreek@u@it*{}{}
+\fi
+
+\LWR@mathjax@addgreek@u@up*{up}{}
+
+\CustomizeMathJax{\newcommand{\mathbold}[1]{\boldsymbol{#1}}}
